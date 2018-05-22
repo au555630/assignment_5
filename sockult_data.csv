@@ -1,0 +1,208 @@
+"id","condition","age","gender","country","feel_before","feel_after","trust_in_donation","notice","alone","comp_or_phone","willingness","amount_r","amount_n","willingness_n","eyes_n","emotion_n","alone_n","size_n","notice_n"
+1,"Happy",37,"Female","Denmark",9,9,1,"Yes","less than 5","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,1,0,1,1
+2,"Happy",28,"Female","Denmark",6,6,5,"Yes","I'm alone","Computer","Yes","donate 50-70 DKK",4,1,1,1,1,0,1
+3,"Happy",27,"Male","Denmark",4,5,8,"No","less than 5","Phone","No","donate 30-50 DKK",3,0,1,1,0,1,0
+4,"Happy",30,"Female","Denmark",9,9,7,"Yes","less than 5","Phone","Yes","donate 10-30 DKK",2,1,1,1,0,1,1
+5,"Happy",19,"Female","Denmark",9,9,7,"Yes","I'm alone","Computer","Yes","donate 50-70 DKK",4,1,1,1,1,0,1
+6,"Happy",23,"Female","Denmark",8,8,7,"Yes","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,1,1,1,1
+7,"Happy",35,"Female","Denmark",8,8,7,"No","less than 5","Computer","Yes","donate 30-50 DKK",3,1,1,1,0,0,0
+8,"Happy",27,"Female","Denmark",7,8,6,"Yes","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,1,1,1,0,1
+9,"Happy",24,"Male","Denmark",5,5,5,"Yes","less than 5","Phone","Yes","donate 10-30 DKK",2,1,1,1,0,1,1
+10,"Happy",24,"Female","Denmark",7,7,8,"Yes","more than 5","Phone","No","donate 100 DKK (donate all the money)",6,0,1,1,0,1,1
+11,"Happy",22,"Female","Denmark",7,7,2,"Yes","I'm alone","Computer","Yes","donate 10-30 DKK",2,1,1,1,1,0,1
+12,"Happy",21,"Female","Hungary",5,6,7,"Yes","I'm alone","Computer","Yes","donate 4000 HUF (donate all the money)",6,1,1,1,1,0,1
+13,"Happy",21,"Female","Hungary",7,5,4,"Yes","less than 5","Phone","No","donate 400-1200 HUF",2,0,1,1,0,1,1
+14,"Happy",34,"Female","Denmark",8,8,3,"No","I'm alone","Computer","No","donate less than 10 DKK",1,0,1,1,1,0,0
+15,"Happy",19,"Female","Denmark",8,8,8,"Yes","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,1,1,1,1
+16,"Happy",24,"Female","Denmark",7,7,3,"Yes","more than 5","Computer","Yes","donate 10-30 DKK",2,1,1,1,0,0,1
+17,"Happy",19,"Male","Denmark",8,7,4,"Yes","I'm alone","Computer","No","donate 30-50 DKK",3,0,1,1,1,0,1
+18,"Happy",33,"Female","Denmark",8,8,1,"Yes","I'm alone","Computer","No","donate less than 10 DKK",1,0,1,1,1,0,1
+19,"Happy",19,"Female","Denmark",5,7,8,"Yes","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,1,1,1,1
+20,"Happy",23,"Female","Denmark",9,9,7,"Yes","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,1,1,1,1,1
+21,"Happy",23,"Female","Denmark",4,4,5,"Yes","I'm alone","Computer","Yes","donate 10-30 DKK",2,1,1,1,1,0,1
+22,"Happy",23,"Female","Denmark",8,8,4,"Yes","I'm alone","Phone","No","donate 50-70 DKK",4,0,1,1,1,1,1
+23,"Happy",22,"Female","Hungary",7,7,6,"Yes","I'm alone","Computer","Yes","donate less than 400 HUF",1,1,1,1,1,0,1
+24,"Happy",23,"Male","Denmark",8,8,8,"Yes","I'm alone","Computer","Yes","donate 30-50 DKK",3,1,1,1,1,0,1
+25,"Happy",19,"Male","Denmark",7,8,5,"No","I'm alone","Computer","Yes","donate 30-50 DKK",3,1,1,1,1,0,0
+26,"Happy",21,"Female","Denmark",2,3,4,"No","I'm alone","Phone","No","donate 30-50 DKK",3,0,1,1,1,1,0
+27,"Happy",38,"Female","Denmark",6,6,2,"Yes","I'm alone","Phone","Yes","donate 30-50 DKK",3,1,1,1,1,1,1
+28,"Happy",24,"Male","Denmark",10,9,3,"No","I'm alone","Phone","Yes","donate less than 10 DKK",1,1,1,1,1,1,0
+29,"Happy",38,"Female","Denmark",8,8,3,"No","less than 5","Phone","Yes","donate 30-50 DKK",3,1,1,1,0,1,0
+30,"Happy",31,"Female","Denmark",7,7,4,"Yes","less than 5","Phone","Yes","donate 30-50 DKK",3,1,1,1,0,1,1
+31,"Happy",21,"Female","Denmark",8,8,4,"Yes","I'm alone","Computer","Yes","donate 50-70 DKK",4,1,1,1,1,0,1
+32,"Happy",22,"Female","Denmark",5,5,4,"Yes","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,1,1,1,0,1
+33,"Happy",30,"Female","Denmark",10,10,9,"Yes","less than 5","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,1,0,1,1
+34,"Happy",27,"Female","Denmark",6,5,5,"Yes","I'm alone","Phone","Yes","donate less than 10 DKK",1,1,1,1,1,1,1
+35,"Happy",28,"Female","Denmark",8,7,2,"No","I'm alone","Phone","Yes","donate 30-50 DKK",3,1,1,1,1,1,0
+36,"Happy",25,"Female","Denmark",7,7,2,"Yes","less than 5","Phone","Yes","donate 10-30 DKK",2,1,1,1,0,1,1
+37,"Happy",23,"Female","Denmark",7,7,8,"Yes","less than 5","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,1,0,1,1
+38,"Happy",30,"Female","Denmark",7,7,8,"No","I'm alone","Computer","No","donate 10-30 DKK",2,0,1,1,1,0,0
+39,"Happy",26,"Female","Denmark",8,8,3,"No","I'm alone","Phone","No","donate 70-90 DKK",5,0,1,1,1,1,0
+40,"Happy",23,"Male","Denmark",8,8,7,"No","less than 5","Phone","Yes","donate 10-30 DKK",2,1,1,1,0,1,0
+41,"Happy",59,"Male","Denmark",8,8,8,"Yes","less than 5","Computer","Yes","donate 10-30 DKK",2,1,1,1,0,0,1
+42,"Happy",26,"Female","Denmark",7,7,4,"Yes","I'm alone","Phone","No","donate less than 10 DKK",1,0,1,1,1,1,1
+43,"Happy",31,"Female","Denmark",7,7,7,"Yes","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,1,1,1,1
+44,"Happy",22,"Female","Denmark",6,7,5,"Yes","I'm alone","Phone","Yes","donate 30-50 DKK",3,1,1,1,1,1,1
+45,"Happy",23,"Female","Denmark",7,7,8,"Yes","more than 5","Computer","Yes","donate 50-70 DKK",4,1,1,1,0,0,1
+46,"Happy",23,"Female","Denmark",7,7,8,"Yes","more than 5","Computer","Yes","donate 50-70 DKK",4,1,1,1,0,0,1
+47,"Happy",24,"Female","Denmark",5,5,5,"Yes","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,1,1,1,1
+48,"Happy",23,"Male","Denmark",8,7,2,"Yes","I'm alone","Computer","No","donate 50-70 DKK",4,0,1,1,1,0,1
+49,"Happy",23,"Female","Other",8,6,4,"Yes","more than 5","Phone","No","donate 10-30 DKK",2,0,1,1,0,1,1
+50,"Happy",20,"Female","Denmark",7,7,3,"Yes","I'm alone","Computer","Yes","donate 30-50 DKK",3,1,1,1,1,0,1
+51,"Happy",21,"Male","Denmark",5,5,3,"Yes","I'm alone","Phone","Yes","donate 50-70 DKK",4,1,1,1,1,1,1
+52,"Happy",24,"Female","Other",9,9,7,"Yes","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,1,1,1,0,1
+53,"Happy",22,"Female","Denmark",8,7,7,"Yes","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,1,1,1,1,1
+54,"Happy",26,"Male","Denmark",5,5,3,"No","less than 5","Phone","No","donate less than 10 DKK",1,0,1,1,0,1,0
+55,"Happy",21,"Male","Other",9,8,5,"No","I'm alone","Computer","Yes","donate less than 10 DKK",1,1,1,1,1,0,0
+56,"Happy",33,"Male","Denmark",5,5,2,"Yes","I'm alone","Computer","No","donate 10-30 DKK",2,0,1,1,1,0,1
+57,"Happy",18,"Female","Other",7,7,5,"Yes","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,1,1,1,1,1
+58,"Happy",20,"Female","Denmark",5,5,2,"Yes","more than 5","Computer","Yes","donate 30-50 DKK",3,1,1,1,0,0,1
+59,"Happy",19,"Female","Denmark",7,6,8,"Yes","less than 5","Computer","Yes","donate 30-50 DKK",3,1,1,1,0,0,1
+60,"Happy",24,"Female","Denmark",6,8,6,"Yes","I'm alone","Computer","No","donate less than 10 DKK",1,0,1,1,1,0,1
+61,"Happy",30,"Female","Denmark",8,8,2,"Yes","I'm alone","Phone","No","donate less than 10 DKK",1,0,1,1,1,1,1
+62,"Happy",10,"Female","Hungary",8,8,7,"No","more than 5","Phone","Yes","donate 400-1200 HUF",2,1,1,1,0,1,0
+63,"Happy",25,"Female","Denmark",8,8,4,"Yes","more than 5","Phone","Yes","donate 10-30 DKK",2,1,1,1,0,1,1
+64,"Happy",25,"Female","Denmark",7,6,4,"Yes","less than 5","Computer","Yes","donate 10-30 DKK",2,1,1,1,0,0,1
+65,"Happy",32,"Male","Denmark",6,6,1,"Yes","I'm alone","Computer","No","donate 10-30 DKK",2,0,1,1,1,0,1
+66,"Happy",30,"Female","Denmark",4,3,4,"Yes","less than 5","Phone","Yes","donate 30-50 DKK",3,1,1,1,0,1,1
+67,"Happy",23,"Male","Denmark",7,7,3,"Yes","less than 5","Computer","No","donate 50-70 DKK",4,0,1,1,0,0,1
+68,"Happy",19,"Male","Other",7,7,5,"Yes","I'm alone","Phone","No","donate 10-30 DKK",2,0,1,1,1,1,1
+69,"Happy",27,"Female","Denmark",6,6,3,"Yes","I'm alone","Phone","No","donate less than 10 DKK",1,0,1,1,1,1,1
+70,"Happy",27,"Female","Denmark",6,6,3,"Yes","I'm alone","Computer","Yes","donate 10-30 DKK",2,1,1,1,1,0,1
+71,"Happy",20,"Female","Denmark",6,6,4,"Yes","less than 5","Computer","Yes","donate 10-30 DKK",2,1,1,1,0,0,1
+72,"Happy",23,"Female","Hungary",7,7,8,"Yes","I'm alone","Phone","Yes","donate 2000-2800 HUF",4,1,1,1,1,1,1
+73,"Happy",18,"Female","Denmark",7,8,4,"No","more than 5","Phone","Yes","donate 10-30 DKK",2,1,1,1,0,1,0
+74,"Happy",20,"Female","Denmark",8,9,2,"Yes","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,1,1,1,0,1
+75,"Happy",27,"Female","Denmark",8,8,7,"No","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,1,1,1,1,0
+76,"Neutral",31,"Female","Denmark",6,6,5,"Yes","less than 5","Computer","Yes","donate 50-70 DKK",4,1,1,0,0,0,1
+77,"Neutral",23,"Female","Denmark",9,9,6,"Yes","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,1,0,1,0,1
+78,"Neutral",19,"Female","Other",10,10,8,"Yes","less than 5","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,0,0,1,1
+79,"Neutral",22,"Female","Denmark",5,5,7,"Yes","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,1,0,1,1,1
+80,"Neutral",22,"Male","Denmark",7,9,1,"Yes","less than 5","Computer","No","donate less than 10 DKK",1,0,1,0,0,0,1
+81,"Neutral",21,"Female","Denmark",10,10,5,"Yes","less than 5","Computer","Yes","donate 100 DKK (donate all the money)",6,1,1,0,0,0,1
+82,"Neutral",26,"Female","Denmark",5,4,1,"Yes","less than 5","Computer","Yes","donate 10-30 DKK",2,1,1,0,0,0,1
+83,"Neutral",32,"Female","Denmark",6,8,10,"Yes","less than 5","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,0,0,1,1
+84,"Neutral",26,"Male","Denmark",3,3,7,"Yes","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,1,0,1,0,1
+85,"Neutral",33,"Female","Denmark",8,8,5,"No","more than 5","Phone","Yes","donate 10-30 DKK",2,1,1,0,0,1,0
+86,"Neutral",26,"Male","Denmark",7,7,2,"No","I'm alone","Computer","No","donate 10-30 DKK",2,0,1,0,1,0,0
+87,"Neutral",24,"Female","Denmark",3,3,8,"Yes","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,1,0,1,1,1
+88,"Neutral",23,"Female","Denmark",7,8,8,"No","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,1,0,1,0,0
+89,"Neutral",23,"Female","Denmark",7,7,6,"No","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,1,0,1,0,0
+90,"Neutral",22,"Female","Denmark",7,7,9,"Yes","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,0,1,1,1
+91,"Neutral",24,"Female","Denmark",8,8,8,"Yes","I'm alone","Computer","No","donate less than 10 DKK",1,0,1,0,1,0,1
+92,"Neutral",22,"Female","Denmark",9,9,6,"Yes","I'm alone","Phone","Yes","donate 50-70 DKK",4,1,1,0,1,1,1
+93,"Neutral",22,"Female","Hungary",8,7,6,"No","less than 5","Computer","Yes","donate 1200-2000 HUF",3,1,1,0,0,0,0
+94,"Neutral",25,"Female","Denmark",6,6,1,"Yes","I'm alone","Phone","No","donate 100 DKK (donate all the money)",6,0,1,0,1,1,1
+95,"Neutral",23,"Female","Other",7,7,5,"Yes","less than 5","Other","No","donate 50-70 DKK",4,0,1,0,0,0,1
+96,"Neutral",23,"Female","Other",7,7,5,"Yes","less than 5","Other","No","donate 50-70 DKK",4,0,1,0,0,0,1
+97,"Neutral",20,"Female","Denmark",8,9,6,"No","I'm alone","Phone","No","donate less than 10 DKK",1,0,1,0,1,1,0
+98,"Neutral",22,"Female","Denmark",8,10,5,"No","I'm alone","Computer","Yes","donate 30-50 DKK",3,1,1,0,1,0,0
+99,"Neutral",22,"Male","Denmark",7,7,3,"Yes","less than 5","Phone","No","donate less than 10 DKK",1,0,1,0,0,1,1
+100,"Neutral",26,"Female","Denmark",5,5,6,"Yes","I'm alone","Computer","No","donate 30-50 DKK",3,0,1,0,1,0,1
+101,"Neutral",21,"Female","Hungary",6,4,10,"Yes","I'm alone","Phone","Yes","donate 1200-2000 HUF",3,1,1,0,1,1,1
+102,"Neutral",34,"Female","Denmark",7,7,6,"No","less than 5","Phone","No","donate 10-30 DKK",2,0,1,0,0,1,0
+103,"Neutral",26,"Female","Denmark",2,2,4,"Yes","I'm alone","Phone","Yes","donate less than 10 DKK",1,1,1,0,1,1,1
+104,"Neutral",21,"Female","Hungary",3,4,6,"No","I'm alone","Phone","Yes","donate 4000 HUF (donate all the money)",6,1,1,0,1,1,0
+105,"Neutral",22,"Female","Denmark",3,3,2,"Yes","I'm alone","Computer","Yes","donate 10-30 DKK",2,1,1,0,1,0,1
+106,"Neutral",20,"Male","Denmark",9,9,4,"No","I'm alone","Computer","No","donate less than 10 DKK",1,0,1,0,1,0,0
+107,"Neutral",27,"Male","Denmark",4,5,8,"Yes","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,0,1,1,1
+108,"Neutral",39,"Female","Denmark",10,10,4,"No","less than 5","Other","Yes","donate 100 DKK (donate all the money)",6,1,1,0,0,0,0
+109,"Neutral",23,"Female","Denmark",7,7,6,"Yes","more than 5","Phone","No","donate 100 DKK (donate all the money)",6,0,1,0,0,1,1
+110,"Neutral",21,"Male","Hungary",7,8,7,"No","I'm alone","Phone","Yes","donate 2800-3600 HUF",5,1,1,0,1,1,0
+111,"Neutral",22,"Male","Hungary",7,7,6,"Yes","I'm alone","Computer","Yes","donate 400-1200 HUF",2,1,1,0,1,0,1
+112,"Neutral",23,"Male","Denmark",7,7,5,"No","I'm alone","Computer","Yes","donate 10-30 DKK",2,1,1,0,1,0,0
+113,"Neutral",25,"Female","Denmark",6,7,8,"Yes","I'm alone","Computer","Yes","donate less than 10 DKK",1,1,1,0,1,0,1
+114,"Neutral",20,"Male","Denmark",5,5,1,"Yes","I'm alone","Phone","No","donate 30-50 DKK",3,0,1,0,1,1,1
+115,"Neutral",28,"Male","Denmark",5,6,3,"Yes","less than 5","Phone","No","donate less than 10 DKK",1,0,1,0,0,1,1
+116,"Neutral",18,"Female","Denmark",3,5,1,"Yes","I'm alone","Phone","No","donate 10-30 DKK",2,0,1,0,1,1,1
+117,"Neutral",22,"Female","Denmark",3,3,7,"Yes","I'm alone","Phone","Yes","donate 30-50 DKK",3,1,1,0,1,1,1
+118,"Neutral",22,"Male","Denmark",7,7,1,"Yes","I'm alone","Phone","No","donate less than 10 DKK",1,0,1,0,1,1,1
+119,"Neutral",17,"Female","Denmark",4,6,4,"No","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,1,0,1,1,0
+120,"Neutral",27,"Female","Denmark",4,4,3,"Yes","less than 5","Phone","No","donate 100 DKK (donate all the money)",6,0,1,0,0,1,1
+121,"Neutral",26,"Female","Denmark",7,7,8,"Yes","more than 5","Phone","No","donate 10-30 DKK",2,0,1,0,0,1,1
+122,"Neutral",21,"Female","Hungary",9,9,5,"Yes","I'm alone","Phone","Yes","donate 2000-2800 HUF",4,1,1,0,1,1,1
+123,"Neutral",35,"Male","Denmark",7,6,6,"No","I'm alone","Computer","Yes","donate 30-50 DKK",3,1,1,0,1,0,0
+124,"Neutral",38,"Female","Denmark",1,3,5,"No","I'm alone","Phone","Yes","donate 50-70 DKK",4,1,1,0,1,1,0
+125,"Neutral",26,"Male","Denmark",6,6,4,"No","less than 5","Computer","Yes","donate 10-30 DKK",2,1,1,0,0,0,0
+126,"Neutral",25,"Female","Denmark",8,8,6,"Yes","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,1,0,1,1,1
+127,"Neutral",24,"Female","Denmark",7,8,8,"Yes","more than 5","Phone","Yes","donate 30-50 DKK",3,1,1,0,0,1,1
+128,"Neutral",28,"Female","Other",7,3,5,"Yes","I'm alone","Phone","Yes","donate 50-70 DKK",4,1,1,0,1,1,1
+129,"Neutral",22,"Female","Denmark",5,4,4,"Yes","I'm alone","Computer","Yes","donate 50-70 DKK",4,1,1,0,1,0,1
+130,"Neutral",31,"Male","Other",3,5,7,"Yes","less than 5","Phone","Yes","donate 10-30 DKK",2,1,1,0,0,1,1
+131,"Neutral",20,"Female","Denmark",10,10,5,"Yes","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,0,1,1,1
+132,"Neutral",23,"Female","Denmark",5,5,3,"Yes","I'm alone","Computer","Yes","donate 30-50 DKK",3,1,1,0,1,0,1
+133,"Neutral",24,"Female","Denmark",7,8,6,"Yes","less than 5","Phone","Yes","donate 10-30 DKK",2,1,1,0,0,1,1
+134,"Neutral",25,"Female","Denmark",6,6,8,"Yes","I'm alone","Phone","Yes","donate 50-70 DKK",4,1,1,0,1,1,1
+135,"Neutral",39,"Male","Denmark",9,8,2,"No","I'm alone","Phone","No","donate 30-50 DKK",3,0,1,0,1,1,0
+136,"Neutral",26,"Female","Denmark",8,8,1,"Yes","less than 5","Computer","No","donate 30-50 DKK",3,0,1,0,0,0,1
+137,"Neutral",22,"Female","Denmark",7,7,2,"No","more than 5","Phone","No","donate 10-30 DKK",2,0,1,0,0,1,0
+138,"Neutral",28,"Male","Denmark",5,5,4,"No","more than 5","Phone","Yes","donate 30-50 DKK",3,1,1,0,0,1,0
+139,"Neutral",26,"Female","Denmark",8,8,7,"Yes","less than 5","Phone","Yes","donate 100 DKK (donate all the money)",6,1,1,0,0,1,1
+140,"Neutral",25,"Male","Denmark",7,7,1,"Yes","I'm alone","Computer","No","donate 100 DKK (donate all the money)",6,0,1,0,1,0,1
+141,"Neutral",22,"Male","Denmark",7,8,8,"Yes","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,1,0,1,1,1
+142,"Neutral",22,"Male","Denmark",5,7,7,"No","I'm alone","Computer","Yes","donate 10-30 DKK",2,1,1,0,1,0,0
+143,"Control",23,"Female","Denmark",9,8,6,"Yes","I'm alone","Phone","Yes","donate 50-70 DKK",4,1,0,NA,1,1,1
+144,"Control",20,"Female","Denmark",3,3,6,"No","more than 5","Phone","Yes","donate 30-50 DKK",3,1,0,NA,0,1,0
+145,"Control",20,"Female","Denmark",7,7,5,"No","I'm alone","Computer","No","donate less than 10 DKK",1,0,0,NA,1,0,0
+146,"Control",27,"Female","Denmark",6,7,3,"No","I'm alone","Computer","Yes","donate 10-30 DKK",2,1,0,NA,1,0,0
+147,"Control",20,"Male","Denmark",9,9,7,"Yes","I'm alone","Computer","Yes","donate 50-70 DKK",4,1,0,NA,1,0,1
+148,"Control",21,"Male","Denmark",7,7,8,"No","I'm alone","Computer","No","donate 30-50 DKK",3,0,0,NA,1,0,0
+149,"Control",25,"Female","Denmark",7,7,5,"Yes","less than 5","Phone","Yes","donate 30-50 DKK",3,1,0,NA,0,1,1
+150,"Control",27,"Female","Denmark",3,4,4,"Yes","less than 5","Computer","No","donate 30-50 DKK",3,0,0,NA,0,0,1
+151,"Control",22,"Male","Denmark",8,8,3,"No","I'm alone","Phone","Yes","donate 30-50 DKK",3,1,0,NA,1,1,0
+152,"Control",27,"Male","Denmark",8,8,6,"Yes","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,1,0,1
+153,"Control",29,"Male","Other",6,5,3,"Yes","I'm alone","Computer","Yes","donate 10-30 DKK",2,1,0,NA,1,0,1
+154,"Control",33,"Male","Denmark",7,8,3,"Yes","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,1,0,1
+155,"Control",20,"Female","Denmark",8,8,5,"Yes","less than 5","Computer","Yes","donate 10-30 DKK",2,1,0,NA,0,0,1
+156,"Control",25,"Male","Denmark",4,5,4,"No","I'm alone","Phone","No","donate 100 DKK (donate all the money)",6,0,0,NA,1,1,0
+157,"Control",21,"Female","Other",2,3,3,"No","more than 5","Phone","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,0,1,0
+158,"Control",21,"Female","Other",6,6,7,"No","I'm alone","Phone","No","donate less than 10 DKK",1,0,0,NA,1,1,0
+159,"Control",32,"Female","Denmark",9,9,8,"No","less than 5","Phone","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,0,1,0
+160,"Control",29,"Female","Denmark",3,3,3,"No","I'm alone","Phone","Yes","donate 30-50 DKK",3,1,0,NA,1,1,0
+161,"Control",21,"Female","Denmark",6,9,9,"No","I'm alone","Phone","Yes","donate 50-70 DKK",4,1,0,NA,1,1,0
+162,"Control",21,"Male","Hungary",6,6,6,"Yes","I'm alone","Computer","Yes","donate 1200-2000 HUF",3,1,0,NA,1,0,1
+163,"Control",41,"Male","Denmark",8,8,6,"Yes","I'm alone","Other","Yes","donate 50-70 DKK",4,1,0,NA,1,0,1
+164,"Control",32,"Female","Denmark",9,9,8,"No","less than 5","Phone","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,0,1,0
+165,"Control",34,"Female","Denmark",4,6,8,"No","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,0,NA,1,1,0
+166,"Control",21,"Female","Hungary",7,7,7,"Yes","I'm alone","Computer","Yes","donate 1200-2000 HUF",3,1,0,NA,1,0,1
+167,"Control",22,"Male","Denmark",5,5,2,"Yes","I'm alone","Computer","Yes","donate 30-50 DKK",3,1,0,NA,1,0,1
+168,"Control",33,"Female","Denmark",7,7,5,"No","less than 5","Phone","Yes","donate 30-50 DKK",3,1,0,NA,0,1,0
+169,"Control",55,"Female","Denmark",7,9,5,"No","I'm alone","Other","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,1,0,0
+170,"Control",22,"Female","Denmark",8,8,7,"No","I'm alone","Computer","Yes","donate 30-50 DKK",3,1,0,NA,1,0,0
+171,"Control",23,"Female","Denmark",5,5,1,"No","I'm alone","Phone","No","donate less than 10 DKK",1,0,0,NA,1,1,0
+172,"Control",22,"Male","Denmark",7,8,7,"No","I'm alone","Computer","No","donate 30-50 DKK",3,0,0,NA,1,0,0
+173,"Control",25,"Female","Other",7,6,2,"Yes","I'm alone","Phone","Yes","donate 50-70 DKK",4,1,0,NA,1,1,1
+174,"Control",28,"Male","Denmark",5,5,4,"No","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,1,1,0
+175,"Control",28,"Female","Denmark",3,4,7,"No","I'm alone","Phone","Yes","donate less than 10 DKK",1,1,0,NA,1,1,0
+176,"Control",33,"Male","Denmark",9,8,1,"No","I'm alone","Phone","No","donate less than 10 DKK",1,0,0,NA,1,1,0
+177,"Control",20,"Female","Denmark",10,10,5,"No","I'm alone","Phone","No","donate less than 10 DKK",1,0,0,NA,1,1,0
+178,"Control",27,"Female","Denmark",7,7,9,"No","less than 5","Phone","Yes","donate less than 10 DKK",1,1,0,NA,0,1,0
+179,"Control",29,"Female","Denmark",10,10,2,"No","I'm alone","Phone","Yes","donate 30-50 DKK",3,1,0,NA,1,1,0
+180,"Control",25,"Female","Denmark",7,7,4,"No","less than 5","Phone","No","donate 10-30 DKK",2,0,0,NA,0,1,0
+181,"Control",25,"Female","Denmark",7,7,4,"No","less than 5","Phone","No","donate 10-30 DKK",2,0,0,NA,0,1,0
+182,"Control",20,"Female","Denmark",6,6,5,"No","I'm alone","Computer","Yes","donate 10-30 DKK",2,1,0,NA,1,0,0
+183,"Control",21,"Female","Hungary",8,8,7,"Yes","I'm alone","Computer","Yes","donate 2000-2800 HUF",4,1,0,NA,1,0,1
+184,"Control",31,"Female","Denmark",7,7,7,"Yes","I'm alone","Phone","Yes","donate 50-70 DKK",4,1,0,NA,1,1,1
+185,"Control",22,"Female","Denmark",9,9,6,"Yes","more than 5","Phone","Yes","donate 30-50 DKK",3,1,0,NA,0,1,1
+186,"Control",22,"Female","Denmark",7,8,10,"Yes","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,1,1,1
+187,"Control",41,"Female","Other",2,4,8,"Yes","less than 5","Phone","No","donate 100 DKK (donate all the money)",6,0,0,NA,0,1,1
+188,"Control",22,"Female","Denmark",7,7,6,"Yes","I'm alone","Computer","No","donate 100 DKK (donate all the money)",6,0,0,NA,1,0,1
+189,"Control",24,"Male","Denmark",4,4,5,"No","more than 5","Phone","No","donate 10-30 DKK",2,0,0,NA,0,1,0
+190,"Control",30,"Female","Denmark",8,10,10,"No","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,1,1,0
+191,"Control",26,"Female","Denmark",5,5,4,"Yes","more than 5","Phone","No","donate 10-30 DKK",2,0,0,NA,0,1,1
+192,"Control",28,"Female","Denmark",4,4,5,"No","less than 5","Computer","No","donate 10-30 DKK",2,0,0,NA,0,0,0
+193,"Control",20,"Male","Denmark",8,8,8,"Yes","I'm alone","Computer","No","donate 30-50 DKK",3,0,0,NA,1,0,1
+194,"Control",35,"Female","Denmark",7,7,2,"No","I'm alone","Computer","Yes","donate less than 10 DKK",1,1,0,NA,1,0,0
+195,"Control",31,"Male","Denmark",8,8,3,"Yes","less than 5","Computer","Yes","donate 10-30 DKK",2,1,0,NA,0,0,1
+196,"Control",25,"Female","Denmark",4,4,7,"Yes","less than 5","Computer","Yes","donate 10-30 DKK",2,1,0,NA,0,0,1
+197,"Control",23,"Female","Denmark",7,8,3,"No","I'm alone","Phone","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,1,1,0
+198,"Control",31,"Male","Denmark",4,4,8,"Yes","less than 5","Computer","No","donate less than 10 DKK",1,0,0,NA,0,0,1
+199,"Control",25,"Female","Denmark",6,6,5,"Yes","less than 5","Phone","Yes","donate 10-30 DKK",2,1,0,NA,0,1,1
+200,"Control",24,"Male","Denmark",5,6,5,"Yes","less than 5","Phone","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,0,1,1
+201,"Control",35,"Male","Denmark",8,8,6,"Yes","I'm alone","Computer","Yes","donate 10-30 DKK",2,1,0,NA,1,0,1
+202,"Control",27,"Female","Denmark",2,2,6,"Yes","I'm alone","Phone","Yes","donate 10-30 DKK",2,1,0,NA,1,1,1
+203,"Control",22,"Male","Denmark",7,7,4,"Yes","more than 5","Phone","Yes","donate 30-50 DKK",3,1,0,NA,0,1,1
+204,"Control",21,"Female","Denmark",7,8,8,"Yes","I'm alone","Computer","Yes","donate 100 DKK (donate all the money)",6,1,0,NA,1,0,1
+205,"Control",21,"Female","Hungary",7,10,5,"Yes","less than 5","Phone","Yes","donate 4000 HUF (donate all the money)",6,1,0,NA,0,1,1
+206,"Control",22,"Female","Denmark",8,8,3,"Yes","I'm alone","Phone","No","donate 10-30 DKK",2,0,0,NA,1,1,1
+207,"Control",19,"Female","Denmark",4,7,4,"Yes","I'm alone","Phone","Yes","donate 30-50 DKK",3,1,0,NA,1,1,1
