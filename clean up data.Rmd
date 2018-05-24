@@ -1,0 +1,140 @@
+---
+title: "Cleaning of the sockult data"
+output: html_document
+---
+
+```{r clean up}     
+
+#clean up the data
+
+clean_up= function(file_name) {
+  #read in data and replace the empty places with NA
+  clean= read.csv(file_name, na.strings=c(""," ","NA"))
+  
+  #add which condition it was
+  g= basename(file_name)
+  f=unlist(strsplit(g, "[.]"))
+  clean$condition=f[1]
+  clean$condition=as.factor(clean$condition)
+  
+  #code from the internet - just adds a number to every row
+  id <- seq.int(nrow(clean))
+  
+  #create unique ids
+  #will overwrite later to make it numeric, but I have no time to rewrite the function
+  clean$id= paste(clean$condition, id)
+  
+  #get out and rename the needed variables
+  clean_new= data.frame(id= clean$id,
+                        condition=clean$condition,
+                        age=round(clean$How.old.are.you.,0),
+                        gender=clean$What.is.your.gender.,
+                        country=clean$Where.do.you.live.,
+                        willingness_dkk=clean$You.are.alone.in.a.room.and.have.100.DKK.on.a.table.in.front.of.you..You.can.give.to.charity.as.much.as.you.want..the.amount.can.be.as.low.as.1.DKK...You.can.keep.the.rest..Would.you.donate.to.charity.,
+                        amount_dkk=clean$You.are.alone.in.a.room.and.have.100.DKK.on.a.table.in.front.of.you..You.must.donate.some.part.of.it..You.can.keep.the.rest..Please.indicate.how.much.you.would.DONATE.,
+                        willingness_huf=clean$You.are.alone.in.a.room.and.have.4000.HUF.on.a.table.in.front.of.you..You.can.give.to.charity.as.much.as.you.want..the.amount.can.be.as.low.as.1.HUF...You.can.keep.the.rest..Would.you.donate.to.charity.,
+                        amount_huf=clean$You.are.alone.in.a.room.and.have.4000.HUF.on.a.table.in.front.of.you..You.must.donate.some.part.of.it..You.can.keep.the.rest..Please.indicate.how.much.you.would.DONATE.,
+                        feel_before=clean$Please.indicate.how.you.feel.now,
+                        feel_after=clean$Please.indicate.how.you.feel.now.1,
+                        trust_in_donation=clean$To.what.extent.do.you.trust.that.donations.in.real.life.arrive.to.where.they.should.,
+                        notice= clean$Did.you.notice.the.picture.on.top.before.seeing.this.question.,
+                        alone= clean$How.many.people.can.you.see.if.you.look.around...Don.t.look.out.the.windows..,
+                        comp_or_phone= clean$Are.you.filling.in.this.questionnaire.on.a.phone.or.computer.
+  )
+  
+  #from the internet https://stackoverflow.com/questions/18115550/how-to-combine-two-or-more-columns-in-a-dataframe-into-a-new-column-with-a-new-n?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+  
+  #function to merge the 4 columns I have about donation
+  #creates 2 columns, gets rid of NAs
+  paste_noNA <- function(x,sep=", ")
+    gsub(", " ,sep, toString(x[!is.na(x) & x!="" & x!="NA"] ) )
+  
+  #one column with all the info separated by comma
+  #no NAs
+  sep=" , "
+  clean_new$n <- apply( clean_new[ , c(6:9) ] , 1 , paste_noNA , sep=sep)
+  
+  #separates the info into the two columns it has to be in
+  clean_new$willingness=stringr::str_split_fixed(clean_new$n, " , ", 2) [,1]
+  clean_new$amount_r=stringr::str_split_fixed(clean_new$n, " , ", 2) [,2]
+  
+  #get rid of unnecessary columns
+  clean_data= clean_new[,-c(6:9, 16)]
+  
+  #correct the variables
+  
+  clean_data$amount_r=as.factor(clean_data$amount_r)
+  
+  #add extra variable for amount to express which is bigger
+  clean_data$amount_f=plyr::revalue(clean_data$amount_r, c("donate less than 10 DKK"="1", "donate 10-30 DKK"= "2","donate 30-50 DKK"="3", "donate 50-70 DKK"="4", "donate 70-90 DKK"="5", "donate 100 DKK (donate all the money)"="6", "donate less than 400 HUF"="1", "donate 400-1200 HUF"="2", "donate 1200-2000 HUF"= "3", "donate 2000-2800 HUF"="4", "donate 2800-3600 HUF"="5", "donate 4000 HUF (donate all the money)"= "6"))
+  
+
+  clean_data$amount_n= as.numeric(as.character(clean_data$amount_f))
+
+  #willingness
+  clean_data$willingness_f=factor(plyr::revalue(clean_data$willingness, c("Yes" = "1", "No"="0")))
+  clean_data$willingness_n= as.numeric(as.character(clean_data$willingness_f))
+  
+  #add extra variable for whether the eyes were present
+  clean_data$eyes_f= plyr::revalue(clean_data$condition, c("Happy"= "1", "Neutral"= "1", "Control"= "0"))
+  clean_data$eyes_n= as.numeric(as.character(clean_data$eyes_f))
+
+   #add extra variable for whether the emotion was present
+  clean_data$emotion_f= plyr::revalue(clean_data$condition, c("Happy"= "1", "Neutral"= "0", "Control"= NA))
+   clean_data$emotion_n= as.numeric(as.character(clean_data$emotion_f))
+ 
+   #was the participant alone?
+   clean_data$alone_f= plyr::revalue(clean_data$alone, c("I'm alone"= "1", "less than 5"= "0", "more than 5"= "0"))
+   clean_data$alone_n= as.numeric(as.character(clean_data$alone_f))
+   
+   #size of the screen?
+   #counting other as big, because there aren't smaller screens than phone
+   clean_data$size_f= plyr::revalue(clean_data$comp_or_phone, c("Computer"= "0", "Phone"= "1", "Other"= "0"))
+   clean_data$size_n= as.numeric(as.character(clean_data$size_f))
+   
+   #were the eyes noticed?
+    clean_data$notice_f= plyr::revalue(clean_data$notice, c("Yes"= "1", "No"= "0"))
+   clean_data$notice_n= as.numeric(as.character(clean_data$notice_f))
+   
+   #gender
+   clean_data$gender_f= plyr::revalue(clean_data$gender, c("Female"= "1", "Male"= "0", "Other"= NA))
+   clean_data$gender_n= as.numeric(as.character(clean_data$gender_f))
+   
+  return(clean_data)
+}
+
+
+```
+
+
+```{r Read in cleaned up data and merge}    
+
+control_data=clean_up("C:/Users/torda/Documents/egyetem/sockult/eyes/data/Control.csv")
+happy_data=clean_up("C:/Users/torda/Documents/egyetem/sockult/eyes/data/Happy.csv")
+
+neutral_data=clean_up("C:/Users/torda/Documents/egyetem/sockult/eyes/data/Neutral.csv")
+
+a=rbind(happy_data, neutral_data)
+
+all_data=rbind(a, control_data)
+rm(a, control_data, happy_data, neutral_data, clean_up)
+
+#get rid of the factors because I won't need them
+b=all_data[, c(1:13, 15, 17, 19, 21, 23, 25, 27, 29 )]
+
+#create number id
+b$id= 1:208
+
+#final file
+write.csv(b, "sockult_data.csv", row.names = F)
+
+all_data=read.csv("sockult_data.csv")
+
+#omit Control group for happy eyes analysis
+emotion_data= na.omit(all_data)
+
+
+```
+
+
+

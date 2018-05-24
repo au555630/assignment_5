@@ -1,0 +1,537 @@
+---
+title: "portfolio 5"
+output: html_document
+---
+Read in data
+```{r}
+all_data=read.csv("sockult_data.csv")
+
+#only happy and neutral conditions
+emotion_data= na.omit(all_data)
+
+```
+
+#models for willingness
+Models for willingness and eyes
+```{r} 
+library(rethinking)
+
+#just alpha
+#see if there was a general preference for donating over not donating
+m_wiley_alpha <- map2stan(
+  
+  alist(
+    willingness_n ~ dbinom( 1 , p ) ,
+    logit(p) <- a,
+    a ~ dnorm(0,10)
+  ) ,
+  data=all_data,
+  chains=2, cores=2,iter = 5000)
+
+
+#plot(m_wiley_alpha)
+
+#adding eyes - testing the hypothesis
+#weakly regularizing prior
+m_wiley_e <- map2stan(
+  alist(
+    willingness_n ~ dbinom( 1 , p ) ,
+    logit(p) <- a + be*eyes_n,
+    a ~ dnorm(0,10),
+    be ~ dnorm(0,10)
+  ) ,
+  data=all_data,
+  chains=2 , cores=2, iter = 5000)
+
+all_data$id= as.numeric(all_data$id)
+
+#adding random intercept
+#allows for individual variation
+m_wiley_er <- map2stan(
+  alist(
+    willingness_n ~ dbinom( 1 , p ) ,
+    logit(p) <- a[id] + be*eyes_n,
+    a[id] ~ dnorm(0,10),
+    be ~ dnorm(0,10)
+  ) ,
+  data=all_data,
+  chains=2 , cores=2, iter = 5000)
+
+#conservative prior
+m_wiley_epr <- map2stan(
+  alist(
+    willingness_n ~ dbinom( 1 , p ) ,
+    logit(p) <- a + be*eyes_n,
+    a ~ dnorm(0,10),
+    be ~ dnorm(0,1)
+  ) ,
+  data=all_data,
+  chains=2 , cores=2, iter = 5000)
+
+#informative prior
+#expecting positive effect
+m_wiley_eipr <- map2stan(
+  alist(
+    willingness_n ~ dbinom( 1 , p ) ,
+    logit(p) <- a + be*eyes_n,
+    a ~ dnorm(0,10),
+    be ~ dnorm(5,10)
+  ) ,
+  data=all_data,
+  chains=2 , cores=2, iter = 5000)
+
+compare(m_wiley_alpha, m_wiley_e, m_wiley_er, m_wiley_epr,m_wiley_eipr)
+compare(m_wiley_alpha, m_wiley_e, m_wiley_epr, m_wiley_eipr)
+#using eyes only makes the model better if individual variation is allowed
+
+#to get only b leave out depth
+results=precis(m_wiley_er, depth = 2)
+get_b=results@output
+x=get_b[c(20, 33, 64, 96, 103, 132, 150, 190, 200, 203, 209),] #just random numbers
+
+
+logistic(5.21) #0.99
+
+#relative effect
+#proportional change in odds
+exp(5.21) #183 -> 83%
+
+
+#absolute effect
+logistic(-11.34) # 1.188763e-05
+logistic( -11.34 + 5.21) #0.002171854
+#absolute change of less than 0.02%
+
+#absolute effect
+logistic(4.8) # 0.9918374
+logistic( 4.8 + 5.21) #0.9999551
+#absolute change of less than 0.08%
+
+#plot(precis(m_wiley_er, depth = 2))
+```
+
+WAIC result with random intercept:
+               WAIC pWAIC dWAIC weight    SE  dSE
+m_wiley_er     93.9  31.4   0.0      1  2.60   NA
+m_wiley_alpha 257.1   1.0 163.1      0 11.21 9.38
+m_wiley_epr   259.1   2.0 165.1      0 11.30 9.48
+m_wiley_eipr  259.1   2.0 165.1      0 11.23 9.40
+m_wiley_e     259.4   2.1 165.4      0 11.36 9.54
+
+WAIC result without random intercept:
+               WAIC pWAIC dWAIC weight    SE  dSE
+m_wiley_alpha 257.1   1.0   0.0   0.49 11.21   NA
+m_wiley_epr   259.1   2.0   2.0   0.18 11.30 0.16
+m_wiley_eipr  259.1   2.0   2.0   0.18 11.23 0.11
+m_wiley_e     259.4   2.1   2.3   0.15 11.36 0.21
+
+using eyes only makes the model better if individual variation is allowed
+using different priors doesn't change much
+
+Results:
+       Mean   StdDev lower 0.89 upper 0.89    n_eff      Rhat
+be       5.196442 1.109334   3.494915   7.012474 2395.498 1.0023773
+
+Models for willingness and emotion
+```{r}
+
+#just alpha
+#see if there was a general preference for donating over not donating
+m_wilem_alpha <- map2stan(
+  
+  alist(
+    willingness_n ~ dbinom( 1 , p ) ,
+    logit(p) <- a,
+    a ~ dnorm(0,10)
+  ) ,
+  data=emotion_data,
+  chains=2, cores=2,iter = 5000)
+
+
+#plot(m_wilem_alpha)
+
+#adding eyes - testing the hypothesis
+#weakly informative prior
+m_wilem_e <- map2stan(
+  alist(
+    willingness_n ~ dbinom( 1 , p ) ,
+    logit(p) <- a + be*emotion_n,
+    a ~ dnorm(0,10),
+    be ~ dnorm(0,10)
+  ) ,
+  data=emotion_data,
+  chains=2 , cores=2, iter = 5000)
+
+emotion_data$id= as.numeric(emotion_data$id)
+
+#adding random effect
+m_wilem_er <- map2stan(
+  alist(
+    willingness_n ~ dbinom( 1 , p ) ,
+    logit(p) <- a[id] + be*emotion_n,
+    a[id] ~ dnorm(0,10),
+    be ~ dnorm(0,10)
+  ) ,
+  data=emotion_data,
+  chains=2 , cores=2, iter = 5000)
+
+#conservative prior
+m_wilem_epr <- map2stan(
+  alist(
+    willingness_n ~ dbinom( 1 , p ) ,
+    logit(p) <- a + be*emotion_n,
+    a ~ dnorm(0,10),
+    be ~ dnorm(0,1)
+  ) ,
+  data=emotion_data,
+  chains=2 , cores=2, iter = 5000)
+
+
+compare(m_wilem_alpha, m_wilem_e, m_wilem_er, m_wilem_epr )
+compare(m_wilem_alpha, m_wilem_e, m_wilem_epr)
+#adding eyes helps only with random intercept
+
+results=precis(m_wilem_er, depth = 2)
+get_b=results@output
+b=get_b[c(12, 23, 57, 60, 64, 73, 75, 99, 112, 124, 140, 143),]
+
+
+logistic(5.84) #0.99
+
+#relative effect
+#proportional change in odds
+exp(5.84) #343 -> ????%
+
+
+#absolute effect
+logistic(-7.89) # 0.0003743294
+logistic( -7.89 + 5.84) #0.1140524
+#absolute change of less than 11.4%
+
+logistic(7.94) # 0.9996439
+logistic( 7.94 + 5.84) #0.999999
+#absolute change of less than 0.004%
+
+```
+WAIC result with random intercept:
+               WAIC pWAIC dWAIC weight   SE  dSE
+m_wilem_er     64.2  21.4   0.0      1 2.19   NA
+m_wilem_alpha 176.2   1.0 112.0      0 9.33 8.02
+m_wilem_epr   177.7   1.9 113.4      0 9.39 7.88
+m_wilem_e     177.9   2.1 113.7      0 9.50 7.96
+
+WAIC result without random intercept:
+               WAIC pWAIC dWAIC weight   SE  dSE
+m_wilem_alpha 176.2   1.0   0.0   0.52 9.33   NA
+m_wilem_epr   177.7   1.9   1.5   0.25 9.39 1.15
+m_wilem_e     177.9   2.1   1.7   0.22 9.50 1.29
+
+using emotions only makes the model better if individual variation is allowed
+
+Results:
+           Mean   StdDev lower 0.89 upper 0.89    n_eff      Rhat
+be       5.842639 1.504150   3.4636500   8.211291 2743.772 0.9997234
+
+
+#plots for willingness
+
+```{r prior check} 
+
+
+prior_check= function(model,p, s) {
+  #plotting the priors against the posteriors
+  post = extract.samples( model , n=1e4 )
+  dist= data.frame(poste= p, prior= rnorm(1e4, 0, s)) #distribution of alpha/beta (posterior and prior)
+  
+  ggplot(data= dist)+ 
+    geom_line(aes(poste), stat= "density") +
+    geom_line(aes(prior), stat= "density", colour= "red")+
+    labs(x="data", y="density")
+  
+}
+
+#prior is red
+
+prior_check(m_wilem_e,post$a, 10)
+prior_check(m_wilem_e,post$be, 10)
+prior_check(m_wilem_epr,post$be, 1)
+prior_check(m_wilem_epr,post$a, 1)
+
+prior_check(m_wiley_e,post$a, 10)
+prior_check(m_wiley_e, post$be, 10)
+prior_check(m_wiley_epr,post$a, 1)
+prior_check(m_wiley_epr, post$be, 1)
+#seems fine?
+```
+
+
+```{r coeftab} 
+# coeftab(m_wiley_alpha, m_wiley_e, m_wiley_er, m_wiley_epr, m_wiley_eipr )
+
+plot(coeftab(m_wiley_alpha, m_wiley_e, m_wiley_epr, m_wiley_eipr))
+
+# coeftab(m_wilem_alpha, m_wilem_e, m_wilem_er, m_wilem_epr)
+
+plot(coeftab(m_wilem_alpha, m_wilem_e, m_wilem_epr))
+
+# plot(coeftab(m_wilem_er)) #not good idea
+
+```
+
+
+
+```{r eyes}  
+
+#get out betas and their 89%PI from the 3 models
+
+#for models without random intercept
+betas=function(x) {
+  e=precis(x)#save output of precis
+  s=as.character(x@formula[2]) #save equation for p
+  d=as.character(x@formula[4]) #save prior for beta
+  f=paste(s, ",", d) #put together to use as name
+  
+  r=e@output$Mean
+  t=e@output$`lower 0.89`
+  o=e@output$`upper 0.89`
+  u=data.frame(b=r, lower=t, upper=o, name=f)
+  u=u[2,] #saves alpha too, so delete first row (alpha)
+  return(u)
+}
+
+#for the random intercept model
+betas_r=function(x) {
+  e=precis(x)
+  s=as.character(x@formula[2])
+  d=as.character(x@formula[4])
+  f=paste(s, ",", d)
+  
+  r=e@output$Mean
+  t=e@output$`lower 0.89`
+  o=e@output$`upper 0.89`
+  u=data.frame(b=r, lower=t, upper=o, name=f)
+  return(u)
+}
+
+wiley_e_res=betas(m_wiley_e)
+wiley_epr_res=betas(m_wiley_epr)
+wiley_er_res= betas_r(m_wiley_er)
+
+wiley_res=rbind(wiley_e_res, wiley_epr_res, wiley_er_res)
+
+library(ggplot2)
+
+ggplot(wiley_res) +
+  geom_pointrange(aes(x=name, y=b, ymin=lower, ymax=upper), colour= "darkblue") +
+  labs(x= "model", y="beta") 
+
+```
+
+```{r emotion} 
+
+#get out betas and their 89%PI from the 3 models
+
+#use functions made for eyes
+wilem_e_res=betas(m_wilem_e)
+wilem_epr_res=betas(m_wilem_epr)
+wilem_er_res= betas_r(m_wilem_er)
+
+wilem_res=rbind(wilem_e_res, wilem_epr_res, wilem_er_res)
+
+
+
+ggplot(wilem_res) +
+  geom_pointrange(aes(x=name, y=b, ymin=lower, ymax=upper), colour= "darkblue") +
+  labs( x= "model", y="beta") +
+  theme_minimal()
+
+```
+
+#models for amount
+Models for amount and eyes
+```{r} 
+#from book
+ # discrete proportion of each response value 
+pr_k <- table( all_data$amount_n ) / nrow(all_data)
+# cumsum converts to cumulative proportions 
+cum_pr_k <- cumsum( pr_k )
+# # plot 
+# plot( 1:6 , cum_pr_k , type="b" , xlab="amount" , ylab="cumulative proportion" , ylim=c(0,1) )
+
+#values needed for the models
+logit <- function(x) log(x/(1-x)) 
+(lco <- logit( cum_pr_k))
+#-1.8088539 -0.2933478  0.5787368  1.1913940  1.2465324
+
+```
+
+```{r}
+#just alpha
+m_amey_alpha <-
+  map2stan(
+    alist(
+      amount_n ~ dordlogit(phi , cutpoints),
+      phi <- 0,
+      cutpoints ~ dnorm(0, 10)
+    ) ,
+    data = list(amount_n = all_data$amount_n),
+    start = list(cutpoints = c(-1.8, -0.3, 0.6, 1.19, 1.24)) ,
+    chains = 2,cores = 2, iter= 5000 )
+
+#adding eyes
+m_amey_e <-
+  map2stan(
+    alist(
+      amount_n ~ dordlogit(phi , cutpoints),
+      phi <- be* eyes_n,
+      be ~ dnorm(0,10),
+      cutpoints ~ dnorm(0, 10)
+      
+    ) ,
+    data = list(amount_n = all_data$amount_n, eyes_n= all_data$eyes_n),
+    start = list(cutpoints = c(-1.8, -0.3, 0.6, 1.19, 1.24)) ,
+    chains = 2,cores = 2, iter= 5000 )
+
+
+#plot(m_amey_e)
+
+
+#conservative prior
+m_amey_e_pr <-
+  map2stan(
+    alist(
+      amount_n ~ dordlogit(phi , cutpoints),
+      phi <- be* eyes_n,
+      be ~ dnorm(0,1),
+      cutpoints ~ dnorm(0, 10)
+      
+    ) ,
+    data = list(amount_n = all_data$amount_n, eyes_n= all_data$eyes_n),
+    start = list(cutpoints = c(-1.8, -0.3, 0.6, 1.19, 1.24)) ,
+    chains = 2,cores = 2, iter= 5000  )
+
+
+compare(m_amey_alpha, m_amey_e, m_amey_e_pr)
+#conservative prior is best
+
+precis(m_amey_e_pr,depth=2)
+plot(precis(m_amey_e_pr,depth=2))
+
+```
+
+               WAIC pWAIC dWAIC weight    SE   dSE
+m_amey_e_pr  680.0   5.8   0.0   0.55 12.05    NA
+m_amey_e     680.4   6.0   0.4   0.45 12.08  0.14
+m_amey_alpha 864.4  15.1 184.4   0.00 30.59 33.29
+
+             Mean StdDev lower 0.89 upper 0.89 n_eff Rhat
+cutpoints[1] -1.93   0.27      -2.37      -1.51  3760    1
+cutpoints[2] -0.40   0.22      -0.75      -0.04  4697    1
+cutpoints[3]  0.47   0.23       0.09       0.81  5000    1
+cutpoints[4]  1.12   0.24       0.73       1.50  5000    1
+cutpoints[5]  1.20   0.24       0.78       1.56  5000    1
+be           -0.12   0.26      -0.54       0.28  4461    1
+
+Models for amount and emotion
+```{r}
+#from book
+ # discrete proportion of each response value 
+pr_k <- table( emotion_data$amount_n ) / nrow(emotion_data)
+# cumsum converts to cumulative proportions 
+cum_pr_k <- cumsum( pr_k )
+# # plot 
+# plot( 1:6 , cum_pr_k , type="b" , xlab="amount" , ylab="cumulative proportion" , ylim=c(0,1) )
+
+#values needed for the models
+logit <- function(x) log(x/(1-x)) 
+(lco <- logit( cum_pr_k))
+#-1.8082888 -0.2263131  0.5485660  1.1948403  1.2755430  
+```
+
+```{r}
+#just alpha
+m_amem_alpha <-
+  map2stan(
+    alist(
+      amount_n ~ dordlogit(phi , cutpoints),
+      phi <- 0,
+      cutpoints ~ dnorm(0, 10)
+    ) ,
+    data = list(amount_n = emotion_data$amount_n),
+    start = list(cutpoints = c(-1.8, -0.2, 0.5, 1.19, 1.27)) ,
+    chains = 2,cores = 2, iter= 5000 )
+
+#adding eyes
+m_amem_e <-
+  map2stan(
+    alist(
+      amount_n ~ dordlogit(phi , cutpoints),
+      phi <- be* eyes_n,
+      be ~ dnorm(0,10),
+      cutpoints ~ dnorm(0, 10)
+      
+    ) ,
+    data = list(amount_n = emotion_data$amount_n, eyes_n= emotion_data$eyes_n),
+    start = list(cutpoints = c(-1.8, -0.2, 0.5, 1.19, 1.27)) ,
+    chains = 2,cores = 2, iter= 5000 )
+
+#plot(m_amem_e)
+
+
+#conservative prior
+m_amem_e_pr <-
+  map2stan(
+    alist(
+      amount_n ~ dordlogit(phi , cutpoints),
+      phi <- be* eyes_n,
+      be ~ dnorm(0,1),
+      cutpoints ~ dnorm(0, 10)
+      
+    ) ,
+    data = list(amount_n = emotion_data$amount_n, eyes_n= emotion_data$eyes_n),
+    start = list(cutpoints = c(-1.8, -0.2, 0.5, 1.19, 1.27)) ,
+    chains = 2,cores = 2, iter= 5000  )
+
+
+compare(m_amem_alpha, m_amem_e, m_amem_e_pr)
+
+precis(m_amem_e_pr,depth=2)
+plot(precis(m_amem_e_pr,depth=2))
+
+```
+
+              WAIC pWAIC dWAIC weight    SE   dSE
+m_amem_e_pr  468.6   4.8   0.0   0.52 10.55    NA
+m_amem_e     468.7   4.9   0.1   0.48 10.63  0.10
+m_amem_alpha 584.0  11.4 115.4   0.00 22.62 25.45
+
+
+              Mean StdDev lower 0.89 upper 0.89 n_eff Rhat
+cutpoints[1] -1.88   1.00      -3.53      -0.32  2052    1
+cutpoints[2] -0.28   0.99      -1.82       1.31  2102    1
+cutpoints[3]  0.52   0.99      -1.00       2.14  2139    1
+cutpoints[4]  1.18   1.00      -0.42       2.74  2150    1
+cutpoints[5]  1.30   1.00      -0.30       2.89  2149    1
+be           -0.04   0.98      -1.50       1.61  2128    1
+
+
+#plots for amount
+```{r coeftab}
+
+coeftab(m_amey_alpha, m_amey_e, m_amey_e_pr)
+
+plot(coeftab(m_amey_alpha, m_amey_e, m_amey_e_pr))
+
+
+coeftab(m_amem_alpha, m_amem_e, m_amem_e_pr)
+
+plot(coeftab(m_amem_alpha, m_amem_e, m_amem_e_pr))
+
+
+
+```
+
+
+
+
+
