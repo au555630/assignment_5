@@ -410,27 +410,42 @@ m_amey_e_pr <-
     start = list(cutpoints = c(-1.8, -0.3, 0.6, 1.19, 1.24)) ,
     chains = 2,cores = 2, iter= 5000  )
 
+#when they are willing to donate, do the eyes make affect?
+m_amey_int <-
+  map2stan(
+    alist(
+      amount_n ~ dordlogit(phi , cutpoints),
+      phi <- bew*eyes_n*willingness_n,
+      bew ~ dnorm(0,10),
+      cutpoints ~ dnorm(0, 10)
+      
+    ) ,
+    data = list(amount_n = all_data$amount_n, eyes_n= all_data$eyes_n, willingness_n= all_data$willingness_n),
+    start = list(cutpoints = c(-1.8, -0.3, 0.6, 1.19, 1.24)),
+    chains = 2,cores = 2, iter= 5000  )
 
-compare(m_amey_alpha, m_amey_e, m_amey_e_pr)
-#conservative prior is best
 
-precis(m_amey_e_pr,depth=2)
-plot(precis(m_amey_e_pr,depth=2))
+compare(m_amey_alpha, m_amey_e, m_amey_e_pr, m_amey_int)
+#interaction is best
+
+precis(m_amey_int,depth=2)
+plot(precis(m_amey_int,depth=2))
 
 ```
 
-               WAIC pWAIC dWAIC weight    SE   dSE
-m_amey_e_pr  680.0   5.8   0.0   0.55 12.05    NA
-m_amey_e     680.4   6.0   0.4   0.45 12.08  0.14
-m_amey_alpha 864.4  15.1 184.4   0.00 30.59 33.29
+              WAIC pWAIC dWAIC weight    SE   dSE
+m_amey_int   676.3   5.9   0.0   0.76 12.23    NA
+m_amey_e_pr  680.0   5.8   3.7   0.12 12.06  4.71
+m_amey_e     680.0   5.8   3.7   0.12 12.15  4.78
+m_amey_alpha 865.6  15.6 189.3   0.00 30.84 33.05
 
-             Mean StdDev lower 0.89 upper 0.89 n_eff Rhat
-cutpoints[1] -1.93   0.27      -2.37      -1.51  3760    1
-cutpoints[2] -0.40   0.22      -0.75      -0.04  4697    1
-cutpoints[3]  0.47   0.23       0.09       0.81  5000    1
-cutpoints[4]  1.12   0.24       0.73       1.50  5000    1
-cutpoints[5]  1.20   0.24       0.78       1.56  5000    1
-be           -0.12   0.26      -0.54       0.28  4461    1
+              Mean StdDev lower 0.89 upper 0.89 n_eff Rhat
+cutpoints[1] -1.61   0.23      -1.99      -1.25  3451    1
+cutpoints[2] -0.07   0.19      -0.36       0.23  4230    1
+cutpoints[3]  0.81   0.19       0.50       1.11  5000    1
+cutpoints[4]  1.46   0.21       1.13       1.80  5000    1
+cutpoints[5]  1.54   0.21       1.19       1.87  5000    1
+bew           0.51   0.25       0.11       0.89  4205    1
 
 Models for amount and emotion
 ```{r}
@@ -492,8 +507,20 @@ m_amem_e_pr <-
     start = list(cutpoints = c(-1.8, -0.2, 0.5, 1.19, 1.27)) ,
     chains = 2,cores = 2, iter= 5000  )
 
+#when they are willing to donate, does the emotion affect the amount?
+m_amem_int <-
+  map2stan(
+    alist(
+      amount_n ~ dordlogit(phi , cutpoints),
+      phi <- bew*emotion_n*willingness_n,
+      bew ~ dnorm(0,10),
+      cutpoints ~ dnorm(0, 10)
+    ) ,
+    data = list(amount_n = emotion_data$amount_n, emotion_n= emotion_data$emotion_n, willingness_n= emotion_data$willingness_n),
+    start = list(cutpoints = c(-1.8, -0.2, 0.5, 1.19, 1.27)),
+    chains = 2,cores = 2, iter= 5000  )
 
-compare(m_amem_alpha, m_amem_e, m_amem_e_pr)
+compare(m_amem_alpha, m_amem_e, m_amem_e_pr, m_amem_int)
 
 precis(m_amem_e_pr,depth=2)
 plot(precis(m_amem_e_pr,depth=2))
@@ -501,9 +528,10 @@ plot(precis(m_amem_e_pr,depth=2))
 ```
 
               WAIC pWAIC dWAIC weight    SE   dSE
-m_amem_e_pr  468.6   4.8   0.0   0.52 10.55    NA
-m_amem_e     468.7   4.9   0.1   0.48 10.63  0.10
-m_amem_alpha 584.0  11.4 115.4   0.00 22.62 25.45
+m_amem_e_pr  468.4   4.7   0.0   0.44 10.51    NA
+m_amem_e     468.9   5.0   0.5   0.35 10.58  0.12
+m_amem_int   469.9   5.8   1.5   0.21 10.80  1.85
+m_amem_alpha 585.2  12.2 116.8   0.00 22.79 25.59
 
 
               Mean StdDev lower 0.89 upper 0.89 n_eff Rhat
@@ -518,20 +546,17 @@ be           -0.04   0.98      -1.50       1.61  2128    1
 #plots for amount
 ```{r coeftab}
 
-coeftab(m_amey_alpha, m_amey_e, m_amey_e_pr)
+#coeftab(m_amey_alpha, m_amey_e, m_amey_e_pr, m_amey_int)
 
-plot(coeftab(m_amey_alpha, m_amey_e, m_amey_e_pr))
+plot(coeftab(m_amey_alpha, m_amey_e, m_amey_e_pr, m_amey_int))
 
 
-coeftab(m_amem_alpha, m_amem_e, m_amem_e_pr)
+#coeftab(m_amem_alpha, m_amem_e, m_amem_e_pr, m_amem_int)
 
-plot(coeftab(m_amem_alpha, m_amem_e, m_amem_e_pr))
+plot(coeftab(m_amem_alpha, m_amem_e, m_amem_e_pr, m_amem_int))
 
 
 
 ```
-
-
-
 
 

@@ -67,7 +67,6 @@ clean_up= function(file_name) {
   
   #add extra variable for amount to express which is bigger
   clean_data$amount_f=plyr::revalue(clean_data$amount_r, c("donate less than 10 DKK"="1", "donate 10-30 DKK"= "2","donate 30-50 DKK"="3", "donate 50-70 DKK"="4", "donate 70-90 DKK"="5", "donate 100 DKK (donate all the money)"="6", "donate less than 400 HUF"="1", "donate 400-1200 HUF"="2", "donate 1200-2000 HUF"= "3", "donate 2000-2800 HUF"="4", "donate 2800-3600 HUF"="5", "donate 4000 HUF (donate all the money)"= "6"))
-  
 
   clean_data$amount_n= as.numeric(as.character(clean_data$amount_f))
 
@@ -136,5 +135,34 @@ emotion_data= na.omit(all_data)
 
 ```
 
+```{r plots}
+
+#run cleaning code again, this time did not delete the factors, as they are needed here
+
+library(ggplot2)
+
+#amount, willingess, eyes 
+ggplot(all_data) +
+  geom_bar(aes(x= amount_n)) +
+  facet_grid(eyes_f~ willingness_n) +
+  xlab("Amount of donation, 1 is <10 DKK, 6 is 100 DKK") 
+
+#amount, willingess, emotion 
+ggplot(emotion_data) +
+  geom_bar(aes(x= amount_n)) +
+  facet_grid(emotion_f~ willingness_n) +
+  xlab("Amount of donation, 1 is <10 DKK, 6 is 100 DKK") 
+
+#conditions, gender balance
+ggplot(all_data) +
+  geom_bar(aes(x= condition)) +
+  facet_grid(~ gender) 
+
+#age
+ggplot(all_data) +
+  geom_histogram(aes(x= age), binwidth = 0.5) 
+
+
+```
 
 
